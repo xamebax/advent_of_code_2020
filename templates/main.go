@@ -8,6 +8,9 @@ import (
 	"strconv"
 )
 
+// ATTRIBUTION: I took the idea of a template file from Liz Fong-Jones'
+// twitch video: https://www.twitch.tv/videos/821587009
+
 var inputFile = flag.String("inputFile", "inputs/1", "relative file path for input data file")
 
 func main() {
