@@ -2,18 +2,22 @@ package main
 
 import (
 	"bufio"
+	"flag"
 	"log"
 	"os"
 	"strconv"
 )
 
+var inputFile = flag.String("inputFile", "inputs/1", "relative file path for input data file")
+
 func main() {
-	findTwoEntriesThatSumUpTo2020()
-	findThreeEntriesThatSumUpTo2020()
+	flag.Parse()
+	findTwoEntriesThatSumUpTo2020(*inputFile)
+	findThreeEntriesThatSumUpTo2020(*inputFile)
 }
 
 func openFile(filePath string) *os.File {
-	file, err := os.Open("input")
+	file, err := os.Open(filePath)
 	if err != nil {
 		log.Fatalf("could not open file: %s", err)
 		return nil
@@ -21,8 +25,8 @@ func openFile(filePath string) *os.File {
 	return file
 }
 
-func findThreeEntriesThatSumUpTo2020() {
-	file := openFile("input")
+func findThreeEntriesThatSumUpTo2020(inputFile string) {
+	file := openFile(inputFile)
 	defer file.Close()
 
 	var inputNumbers []int64
@@ -49,8 +53,8 @@ MegaLoop:
 	}
 }
 
-func findTwoEntriesThatSumUpTo2020() {
-	file := openFile("input")
+func findTwoEntriesThatSumUpTo2020(inputFile string) {
+	file := openFile(inputFile)
 	defer file.Close()
 
 	numberPairs := make(map[int64]int64)
