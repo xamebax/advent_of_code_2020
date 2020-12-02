@@ -8,7 +8,7 @@ import (
 	"strconv"
 )
 
-var inputFile = flag.String("inputFile", "inputs/1", "relative file path for input data file")
+var inputFile = flag.String("inputFile", "inputs/01", "relative file path for input data file")
 
 func main() {
 	flag.Parse()
